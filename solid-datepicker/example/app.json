@@ -1,0 +1,23 @@
+{
+  "name": "react-native-solid-datepicker-example",
+  "displayName": "SolidDatepicker Example",
+  "expo": {
+    "name": "react-native-solid-datepicker-example",
+    "slug": "react-native-solid-datepicker-example",
+    "description": "Example app for react-native-solid-datepicker",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "jsEngine": "hermes",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
