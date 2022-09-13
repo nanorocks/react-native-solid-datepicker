@@ -1,6 +1,6 @@
 {
   "name": "react-native-solid-datepicker",
-  "version": "0.1.2",
+  "version": "1.2.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
