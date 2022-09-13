@@ -11,14 +11,13 @@ export default function App() {
       <View style={styles.container}>
         <SolidDatePicker
           date={date}
-          onChange={(date:string) => setDate(date)}
+          onChange={(date: string) => setDate(date)}
         />
       </View>
-      <View style={{marginTop: 90, alignItems: 'center'}}>
+      <View style={{ marginTop: 90, alignItems: 'center' }}>
         <Text>Set date: {JSON.stringify(date)}</Text>
       </View>
     </>
-
   );
 }
 
@@ -27,5 +26,5 @@ const styles = StyleSheet.create({
     marginTop: 90,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });

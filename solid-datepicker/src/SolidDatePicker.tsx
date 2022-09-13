@@ -7,55 +7,55 @@ import Month from './components/Month/Month';
 import Year from './components/Year/Year';
 
 function SolidDatePicker({ date, onChange }) {
+  const [year, setYear] = useState<string | null>(null);
+  const [month, setMonth] = useState<number | null>(null);
+  const [day, setDay] = useState<number | null>(null);
 
-  const [year, setYear] = useState<string | null>(null)
-  const [month, setMonth] = useState<number | null>(null)
-  const [day, setDay] = useState<number | null>(null)
-
-  const [inCompleted, setInCompleted] = useState(true)
+  const [inCompleted, setInCompleted] = useState(true);
 
   useEffect(() => {
-
     if (date === null) {
       return;
     }
 
     const tmpDate = moment(date);
 
-    setYear(tmpDate.year().toString())
-    setMonth(tmpDate.month())
-    setDay(tmpDate.date())
-
-  }, [])
+    setYear(tmpDate.year().toString());
+    setMonth(tmpDate.month());
+    setDay(tmpDate.date());
+  }, []);
 
   useEffect(() => {
     if (day === null || month === null || year === null) {
-      setInCompleted(true)
-      onChange(null)
+      setInCompleted(true);
+      onChange(null);
       return;
     }
 
-    setInCompleted(false)
-    onChange(new Date(parseInt(year), month, day))
-
-  }, [day, month, year])
+    setInCompleted(false);
+    onChange(new Date(parseInt(year), month, day));
+  }, [day, month, year]);
 
   return (
     <>
       <View style={styles.container}>
-        <Year value={year} setYear={setYear} setMonth={setMonth} setDay={setDay} />
+        <Year
+          value={year}
+          setYear={setYear}
+          setMonth={setMonth}
+          setDay={setDay}
+        />
         <Month value={month} setMonth={setMonth} setDay={setDay} />
         <Day value={day} setDay={setDay} month={month} year={year} />
       </View>
       {/* <View style={{ marginTop: 10 }}> */}
-        {inCompleted && <Text style={styles.inCompleted}>Incompleted date</Text>}
+      {inCompleted && <Text style={styles.inCompleted}>Incompleted date</Text>}
       {/* </View> */}
     </>
   );
 }
 
 const styles = StyleSheet.create({
-
   inCompleted: {
     color: 'red',
     fontSize: 11,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   dropdown: {
     width: 100,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 8,
     paddingHorizontal: 8,
-    margin: 5
+    margin: 5,
   },
   icon: {
     marginRight: 5,
