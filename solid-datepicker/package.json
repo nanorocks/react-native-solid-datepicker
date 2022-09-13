@@ -24,7 +24,7 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
@@ -147,5 +147,10 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "react-native-dropdown-picker": "^5.4.2",
+    "react-native-element-dropdown": "^2.3.0"
   }
 }

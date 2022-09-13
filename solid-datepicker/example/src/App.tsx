@@ -1,31 +1,31 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-solid-datepicker';
+import SolidDatePicker from 'react-native-solid-datepicker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const [date, setDate] = React.useState(new Date().toString());
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <>
+      <View style={styles.container}>
+        <SolidDatePicker
+          date={date}
+          onChange={(date:string) => setDate(date)}
+        />
+      </View>
+      <View style={{marginTop: 90, alignItems: 'center'}}>
+        <Text>Set date: {JSON.stringify(date)}</Text>
+      </View>
+    </>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 90,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
+  }
 });
