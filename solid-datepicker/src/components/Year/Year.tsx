@@ -2,12 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
+import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
 
-function Year({ value, setYear, setMonth, setDay, min = 25, max = 1 }) {
+function Year({
+  value,
+  setYear,
+  setMonth,
+  setDay,
+  minYear,
+  maxYear,
+  darkMode,
+}) {
+  const styles = darkMode ? stylesDark : stylesLight;
+
   const yearsGenerator: any = (min: number, max: number) => {
     const years = [];
     const dateStart = moment().subtract(min, 'y');
     const dateEnd = moment().add(max, 'y');
+
     while (dateEnd.diff(dateStart, 'years') >= 0) {
       years.push({
         label: dateStart.format('YYYY'),
@@ -15,13 +27,21 @@ function Year({ value, setYear, setMonth, setDay, min = 25, max = 1 }) {
       });
       dateStart.add(1, 'year');
     }
-    return years;
+
+    return years.reverse();
   };
 
   const [isFocus, setIsFocus] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    const currentYear: number = moment().year();
+    const max =
+      currentYear <= maxYear
+        ? Math.abs(currentYear - maxYear)
+        : maxYear - currentYear;
+    const min = Math.abs(minYear - currentYear);
+
     return setData(yearsGenerator(min, max));
   }, []);
   return (
@@ -52,26 +72,8 @@ function Year({ value, setYear, setMonth, setDay, min = 25, max = 1 }) {
   );
 }
 
-const styles = StyleSheet.create({
-  dropdown: {
-    width: 100,
-    height: 50,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 18,
-    margin: 5,
-  },
-  placeholderStyle: {
-    fontSize: 12,
-  },
-  selectedTextStyle: {
-    fontSize: 12,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 12,
-  },
-});
+const stylesLight = StyleSheet.create(dropdownStyleLight);
+
+const stylesDark = StyleSheet.create(dropdownStyleDark);
 
 export default Year;

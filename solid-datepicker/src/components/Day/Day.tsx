@@ -2,20 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
+import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
 
-function Day({ value, setDay, month, year }) {
+function Day({ value, setDay, month, year, darkMode }) {
+  const styles = darkMode ? stylesDark : stylesLight;
+
   const daysGenerator: any = () => {
-    if (month === null || year === null) {
-      return Array.from(Array(moment('2020-03').daysInMonth()).keys()).map(
-        (day) => ({ label: (day + 1).toString(), value: day + 1 })
-      );
+    let randomYearAndMonth = '2020-03';
+    // get random days
+    if (month !== null && year !== null) {
+      const tmpMonth =
+        parseInt(month) > 9
+          ? (parseInt(month) + 1).toString()
+          : '0' + (parseInt(month) + 1);
+      randomYearAndMonth = year.toString() + '-' + tmpMonth;
     }
 
-    const getDaysForMonth = Array.from(
-      Array(moment(year + '-0' + month).daysInMonth()).keys()
-    ).map((day) => ({ label: (day + 1).toString(), value: day + 1 }));
+    const daysFromYearAndMonth = Array.from(
+      { length: moment(randomYearAndMonth).daysInMonth() },
+      (_, i) => i + 1
+    );
 
-    return getDaysForMonth;
+    return daysFromYearAndMonth.map((item) => ({
+      label: item,
+      value: item + 1,
+    }));
   };
 
   const [isFocus, setIsFocus] = useState(false);
@@ -51,26 +62,8 @@ function Day({ value, setDay, month, year }) {
   );
 }
 
-const styles = StyleSheet.create({
-  dropdown: {
-    width: 100,
-    height: 50,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 18,
-    margin: 5,
-  },
-  placeholderStyle: {
-    fontSize: 12,
-  },
-  selectedTextStyle: {
-    fontSize: 12,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 12,
-  },
-});
+const stylesLight = StyleSheet.create(dropdownStyleLight);
+
+const stylesDark = StyleSheet.create(dropdownStyleDark);
 
 export default Day;

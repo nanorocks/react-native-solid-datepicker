@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
+import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
 
-function Month({ value, setMonth, setDay }) {
+function Month({ value, setMonth, setDay, darkMode }) {
+  const styles = darkMode ? stylesDark : stylesLight;
+
   const monthsGenerator: any = () => {
     return moment
       .monthsShort()
-      .map((monthName, index) => ({ label: monthName, value: index + 1 }));
+      .map((monthName, index) => ({ label: monthName, value: index }));
   };
 
   const [isFocus, setIsFocus] = useState(false);
@@ -44,26 +47,8 @@ function Month({ value, setMonth, setDay }) {
   );
 }
 
-const styles = StyleSheet.create({
-  dropdown: {
-    width: 100,
-    height: 50,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 18,
-    margin: 5,
-  },
-  placeholderStyle: {
-    fontSize: 12,
-  },
-  selectedTextStyle: {
-    fontSize: 12,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 12,
-  },
-});
+const stylesLight = StyleSheet.create(dropdownStyleLight);
+
+const stylesDark = StyleSheet.create(dropdownStyleDark);
 
 export default Month;

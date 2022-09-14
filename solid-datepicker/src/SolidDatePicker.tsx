@@ -6,7 +6,14 @@ import Day from './components/Day/Day';
 import Month from './components/Month/Month';
 import Year from './components/Year/Year';
 
-function SolidDatePicker({ date, onChange }) {
+function SolidDatePicker({
+  date,
+  onChange,
+  showError = true,
+  minYear = 1999,
+  maxYear = 2030,
+  darkMode = false,
+}) {
   const [year, setYear] = useState<string | null>(null);
   const [month, setMonth] = useState<number | null>(null);
   const [day, setDay] = useState<number | null>(null);
@@ -44,13 +51,29 @@ function SolidDatePicker({ date, onChange }) {
           setYear={setYear}
           setMonth={setMonth}
           setDay={setDay}
+          minYear={minYear}
+          maxYear={maxYear}
+          darkMode={darkMode}
         />
-        <Month value={month} setMonth={setMonth} setDay={setDay} />
-        <Day value={day} setDay={setDay} month={month} year={year} />
+        <Month
+          value={month}
+          setMonth={setMonth}
+          setDay={setDay}
+          darkMode={darkMode}
+        />
+        <Day
+          value={day}
+          setDay={setDay}
+          month={month}
+          year={year}
+          darkMode={darkMode}
+        />
       </View>
-      {/* <View style={{ marginTop: 10 }}> */}
-      {inCompleted && <Text style={styles.inCompleted}>Incompleted date</Text>}
-      {/* </View> */}
+      <View style={{ alignItems: 'center' }}>
+        {showError && inCompleted && (
+          <Text style={styles.inCompleted}>*Incompleted date</Text>
+        )}
+      </View>
     </>
   );
 }
@@ -59,46 +82,9 @@ const styles = StyleSheet.create({
   inCompleted: {
     color: 'red',
     fontSize: 11,
-    marginTop: 60,
   },
   container: {
-    flex: 1,
     flexDirection: 'row',
-  },
-  dropdown: {
-    width: 100,
-    height: 50,
-    borderColor: 'gray',
-    borderWidth: 0.5,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    margin: 5,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  label: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    left: 22,
-    top: 8,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
   },
 });
 

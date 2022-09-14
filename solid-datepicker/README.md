@@ -1,9 +1,15 @@
 # react-native-solid-datepicker
-SolidDatePicker an customisable data-picker for react-native
+
+An customisable date-picker for react-native with Android and IOS support
+
 ## Installation
 
 ```sh
 npm install react-native-solid-datepicker
+
+or
+
+yarn add react-native-solid-datepicker
 ```
 
 ## Usage
@@ -16,31 +22,50 @@ import React from 'react';
 
 export default function App() {
   const [date, setDate] = React.useState(new Date().toString());
+  const [date1, setDate1] = React.useState(new Date().toString());
 
   return (
-    <>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View>
         <SolidDatePicker
           date={date}
-          onChange={(date) => setDate(date)}
+          onChange={(date: string) => setDate(date)}
+          showError={true}
+          minYear={2022}
+          maxYear={2025}
+          darkMode={false}
         />
       </View>
-      <View style={{ marginTop: 90, alignItems: 'center' }}>
+      <View style={{ alignItems: 'center' }}>
         <Text>Set date: {JSON.stringify(date)}</Text>
       </View>
-      <StatusBar style="auto" />
-    </>
+      <View>
+        <SolidDatePicker
+          date={date1}
+          onChange={(date: string) => setDate1(date)}
+          showError={false}
+          darkMode={false}
+        />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 90,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: { alignItems: 'center', paddingTop: 90, flex: 1.3 },
 });
 ```
+
+## Properties
+
+| Property  | Description                           |
+| --------- | ------------------------------------- |
+| date      | (required) State variable             |
+| onChange  | (required) State varable change value |
+| showError | (optional) Bolean value (true/false)  |
+| minYear   | (optional) Number value               |
+| maxYear   | (optional) Number value               |
+| darkMode  | (optional) Bolean value (true/false)  |
 
 ## Contributing
 
