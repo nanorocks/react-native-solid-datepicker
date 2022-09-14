@@ -35,13 +35,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/nanorocks/react-native-solid-datepicker/solid-datepicker",
+  "repository": "https://github.com/nanorocks/react-native-solid-datepicker",
   "author": "Andrej Nankov <andrejnankov@gmail.com> (https://github.com/nanorocks/react-native-solid-datepicker)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nanorocks/react-native-solid-datepicker/react-native-solid-datepicker/issues"
   },
-  "homepage": "https://github.com/nanorocks/react-native-solid-datepicker/react-native-solid-datepicker#readme",
+  "homepage": "https://github.com/nanorocks/react-native-solid-datepicker/tree/main/solid-datepicker",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
