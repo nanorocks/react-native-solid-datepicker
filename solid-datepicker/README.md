@@ -12,6 +12,9 @@ or
 yarn add react-native-solid-datepicker
 ```
 
+## Example
+![](https://github.com/nanorocks/react-native-solid-datepicker/blob/main/example_iphone.gif)
+
 ## Usage
 
 ```js
