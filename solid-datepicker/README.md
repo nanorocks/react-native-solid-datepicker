@@ -9,10 +9,10 @@ npm install react-native-solid-datepicker
 ## Usage
 
 ```js
-import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 import SolidDatePicker from 'react-native-solid-datepicker';
+import React from 'react';
 
 export default function App() {
   const [date, setDate] = React.useState(new Date().toString());
@@ -22,14 +22,14 @@ export default function App() {
       <View style={styles.container}>
         <SolidDatePicker
           date={date}
-          onChange={(date:string) => setDate(date)}
+          onChange={(date) => setDate(date)}
         />
       </View>
-      <View style={{marginTop: 90, alignItems: 'center'}}>
+      <View style={{ marginTop: 90, alignItems: 'center' }}>
         <Text>Set date: {JSON.stringify(date)}</Text>
       </View>
+      <StatusBar style="auto" />
     </>
-
   );
 }
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginTop: 90,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
 ```
 
