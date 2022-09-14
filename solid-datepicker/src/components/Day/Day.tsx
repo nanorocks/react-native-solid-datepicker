@@ -44,7 +44,7 @@ function Day({ value, setDay, month, year, darkMode }) {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         data={data}
-        search={true}
+        search={false}
         maxHeight={300}
         labelField="label"
         valueField="value"

@@ -34,6 +34,7 @@ export default function App() {
           minYear={2022}
           maxYear={2025}
           darkMode={false}
+          isSearchable={false}
         />
       </View>
       <View style={{ alignItems: 'center' }}>
@@ -58,14 +59,15 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Property  | Description                           |
-| --------- | ------------------------------------- |
-| date      | (required) State variable             |
-| onChange  | (required) State varable change value |
-| showError | (optional) Bolean value (true/false)  |
-| minYear   | (optional) Number value               |
-| maxYear   | (optional) Number value               |
-| darkMode  | (optional) Bolean value (true/false)  |
+| Property      | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| date          | (required) State variable                                |
+| onChange      | (required) State varable change value                    |
+| showError     | (optional) Bolean value (true/false)                     |
+| minYear       | (optional) Number value                                  |
+| maxYear       | (optional) Number value                                  |
+| darkMode      | (optional) Bolean value (true/false)                     |
+| isSearchable  | (optional) Bolean value (true/false) for month and year  |
 
 ## Contributing
 

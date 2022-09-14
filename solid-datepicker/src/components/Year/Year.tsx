@@ -12,6 +12,7 @@ function Year({
   minYear,
   maxYear,
   darkMode,
+  isSearchable
 }) {
   const styles = darkMode ? stylesDark : stylesLight;
 
@@ -52,7 +53,7 @@ function Year({
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         data={data}
-        search={true}
+        search={isSearchable}
         maxHeight={300}
         labelField="label"
         valueField="value"

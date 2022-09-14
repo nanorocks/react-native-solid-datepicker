@@ -13,6 +13,7 @@ function SolidDatePicker({
   minYear = 1999,
   maxYear = 2030,
   darkMode = false,
+  isSearchable = true
 }) {
   const [year, setYear] = useState<string | null>(null);
   const [month, setMonth] = useState<number | null>(null);
@@ -54,12 +55,14 @@ function SolidDatePicker({
           minYear={minYear}
           maxYear={maxYear}
           darkMode={darkMode}
+          isSearchable={isSearchable}
         />
         <Month
           value={month}
           setMonth={setMonth}
           setDay={setDay}
           darkMode={darkMode}
+          isSearchable={isSearchable}
         />
         <Day
           value={day}

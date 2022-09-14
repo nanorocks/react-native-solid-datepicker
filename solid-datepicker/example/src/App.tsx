@@ -17,6 +17,7 @@ export default function App() {
           minYear={2022}
           maxYear={2025}
           darkMode={false}
+          isSearchable={false}
         />
       </View>
       <View style={{ alignItems: 'center' }}>

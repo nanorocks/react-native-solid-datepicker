@@ -4,7 +4,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
 
-function Month({ value, setMonth, setDay, darkMode }) {
+function Month({ value, setMonth, setDay, darkMode, isSearchable }) {
   const styles = darkMode ? stylesDark : stylesLight;
 
   const monthsGenerator: any = () => {
@@ -28,7 +28,7 @@ function Month({ value, setMonth, setDay, darkMode }) {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         data={data}
-        search={true}
+        search={isSearchable}
         maxHeight={300}
         labelField="label"
         valueField="value"
