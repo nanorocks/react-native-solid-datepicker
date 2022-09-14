@@ -1,6 +1,6 @@
 # react-native-solid-datepicker
 
-An customisable date-picker for react-native with Android and IOS support
+An customizable date-picker for react-native with Android and IOS support
 
 ## Installation
 
@@ -18,7 +18,6 @@ yarn add react-native-solid-datepicker
 ## Usage
 
 ```js
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import SolidDatePicker from 'react-native-solid-datepicker';
 import React from 'react';
