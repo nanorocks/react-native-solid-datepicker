@@ -38,12 +38,9 @@ function SolidDatePicker({
       setMonth(splitDate[1]);
       setDay(splitDate[2]);
     } catch (e) {
-      setYear(null);
-      setMonth(null);
-      setDay(null);
+      // ... do nothing
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [date]);
 
   useEffect(() => {
     if (year === null || month === null || day === null) {

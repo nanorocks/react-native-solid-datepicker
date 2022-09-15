@@ -24,8 +24,16 @@ import SolidDatePicker from 'react-native-solid-datepicker';
 import React from 'react';
 
 export default function App() {
-  const [date, setDate] = React.useState('2022/3/15');
+  const [date, setDate] = React.useState(null);
   const [emptyDate, setEmptyDate] = React.useState(null);
+
+  React.useEffect(() => {
+    setDate('2022/3/15'); // setting value
+  }, []);
+
+  React.useEffect(() => {
+    console.log({ emptyDate }); // do whatever you want ...
+  }, [emptyDate]);
 
   return (
     <View style={styles.container}>
@@ -47,6 +55,7 @@ export default function App() {
         <SolidDatePicker
           date={emptyDate}
           onChange={(newDate: string) => setEmptyDate(newDate)}
+          showError={false}
         />
       </View>
     </View>
