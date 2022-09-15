@@ -6,23 +6,23 @@ import Month from './components/Month/Month';
 import Year from './components/Year/Year';
 
 interface ISolidDatePicker {
-  date: string | null,
-  onChange: any,
-  showError?: boolean
-  minYear?: string,
-  maxYear?: string,
-  darkMode?: boolean,
-  isSearchable?: boolean
+  date: string | null;
+  onChange: any;
+  showError?: boolean;
+  minYear?: string;
+  maxYear?: string;
+  darkMode?: boolean;
+  isSearchable?: boolean;
 }
 
 function SolidDatePicker({
   date,
   onChange,
   showError = true,
-  minYear = "1999",
-  maxYear = "2030",
+  minYear = '1999',
+  maxYear = '2030',
   darkMode = false,
-  isSearchable = true
+  isSearchable = true,
 }: ISolidDatePicker) {
   const [year, setYear] = useState<string | null>(null);
   const [month, setMonth] = useState<string | null>(null);
@@ -32,7 +32,7 @@ function SolidDatePicker({
 
   useEffect(() => {
     try {
-      const splitDate: string[] = date.split("/");
+      const splitDate: string[] = date.split('/');
 
       setYear(splitDate[0]);
       setMonth(splitDate[1]);
@@ -42,6 +42,7 @@ function SolidDatePicker({
       setMonth(null);
       setDay(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ function SolidDatePicker({
 
     setInCompleted(false);
     onChange(`${year}/${month}/${day}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, month, day]);
 
   return (
@@ -83,7 +85,7 @@ function SolidDatePicker({
           darkMode={darkMode}
         />
       </View>
-      <View style={{ alignItems: 'center' }}>
+      <View style={styles.error}>
         {showError && inCompleted && (
           <Text style={styles.inCompleted}>*Incompleted date</Text>
         )}
@@ -99,6 +101,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
+  },
+  error: {
+    alignItems: 'center',
   },
 });
 

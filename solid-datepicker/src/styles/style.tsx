@@ -8,6 +8,9 @@ export const dropdownStyleDark = {
     paddingHorizontal: 18,
     margin: 5,
   },
+  isFocus: {
+    borderColor: '#mmm',
+  },
   placeholderStyle: {
     fontSize: 12,
     color: 'white',
@@ -32,6 +35,9 @@ export const dropdownStyleLight = {
     borderRadius: 8,
     paddingHorizontal: 18,
     margin: 5,
+  },
+  isFocus: {
+    borderColor: '#mmm',
   },
   placeholderStyle: {
     fontSize: 12,

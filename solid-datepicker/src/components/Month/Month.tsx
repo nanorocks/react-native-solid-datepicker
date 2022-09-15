@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
-import { monthsGenerator } from './../../helpers/generators'
+import { monthsGenerator } from './../../helpers/generators';
 interface IMonth {
-  value: string,
-  setMonth: any,
-  setDay: any,
-  darkMode: boolean,
-  isSearchable: boolean
+  value: string;
+  setMonth: any;
+  setDay: any;
+  darkMode: boolean;
+  isSearchable: boolean;
 }
 
 function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
-
   const [isFocus, setIsFocus] = useState<boolean>(false);
-  const [data, setData] = useState<{label: string, value: string}[] | []>([]);
-  const [styles] = useState(darkMode ? stylesDark : stylesLight)
+  const [data, setData] = useState<{ label: string; value: string }[] | []>([]);
+  const [styles] = useState(darkMode ? stylesDark : stylesLight);
 
   useEffect(() => {
     setData(monthsGenerator());
@@ -24,7 +23,7 @@ function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
   return (
     <>
       <Dropdown
-        style={[styles.dropdown, isFocus && { borderColor: '#mmm' }]}
+        style={[styles.dropdown, isFocus && styles.isFocus]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
