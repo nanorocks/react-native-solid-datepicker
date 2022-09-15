@@ -3,6 +3,18 @@ import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import moment from 'moment';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
+import { yearsGenerator } from './../../helpers/generators'
+
+interface IYear {
+  value: string,
+  setYear: any,
+  setMonth: any,
+  setDay: any,
+  minYear: string,
+  maxYear: string,
+  darkMode: boolean,
+  isSearchable: boolean,
+}
 
 function Year({
   value,
@@ -13,37 +25,26 @@ function Year({
   maxYear,
   darkMode,
   isSearchable
-}) {
-  const styles = darkMode ? stylesDark : stylesLight;
+}: IYear) {
 
-  const yearsGenerator: any = (min: number, max: number) => {
-    const years = [];
-    const dateStart = moment().subtract(min, 'y');
-    const dateEnd = moment().add(max, 'y');
-
-    while (dateEnd.diff(dateStart, 'years') >= 0) {
-      years.push({
-        label: dateStart.format('YYYY'),
-        value: dateStart.format('YYYY'),
-      });
-      dateStart.add(1, 'year');
-    }
-
-    return years.reverse();
-  };
-
-  const [isFocus, setIsFocus] = useState(false);
-  const [data, setData] = useState([]);
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [data, setData] = useState<{label: string, value: string}[] | []>([]);
+  const [styles] = useState<any>(darkMode ? stylesDark : stylesLight)
 
   useEffect(() => {
-    const currentYear: number = moment().year();
-    const max =
-      currentYear <= maxYear
-        ? Math.abs(currentYear - maxYear)
-        : maxYear - currentYear;
-    const min = Math.abs(minYear - currentYear);
+    try {
+      const currentYear: number = moment().year();
+      const maxYearNum: number = parseInt(maxYear);
+      const minYearNum: number = parseInt(minYear);
 
-    return setData(yearsGenerator(min, max));
+      const max:number = currentYear <= maxYearNum ? Math.abs(currentYear - maxYearNum) : maxYearNum - currentYear;
+      const min:number = Math.abs(minYearNum - currentYear);
+
+      setData(yearsGenerator(min, max));
+
+    } catch (e) {
+      setData(null);
+    }
   }, []);
   return (
     <>

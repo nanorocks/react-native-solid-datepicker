@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import moment from 'moment';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
+import { monthsGenerator } from './../../helpers/generators'
+interface IMonth {
+  value: string,
+  setMonth: any,
+  setDay: any,
+  darkMode: boolean,
+  isSearchable: boolean
+}
 
-function Month({ value, setMonth, setDay, darkMode, isSearchable }) {
-  const styles = darkMode ? stylesDark : stylesLight;
+function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
 
-  const monthsGenerator: any = () => {
-    return moment
-      .monthsShort()
-      .map((monthName, index) => ({ label: monthName, value: index }));
-  };
-
-  const [isFocus, setIsFocus] = useState(false);
-  const [data, setData] = useState([]);
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [data, setData] = useState<{label: string, value: string}[] | []>([]);
+  const [styles] = useState(darkMode ? stylesDark : stylesLight)
 
   useEffect(() => {
-    return setData(monthsGenerator());
+    setData(monthsGenerator());
   }, []);
 
   return (

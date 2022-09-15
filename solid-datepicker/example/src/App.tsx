@@ -4,8 +4,8 @@ import { StyleSheet, View, Text } from 'react-native';
 import SolidDatePicker from 'react-native-solid-datepicker';
 
 export default function App() {
-  const [date, setDate] = React.useState(new Date().toString());
-  const [date1, setDate1] = React.useState(new Date().toString());
+  const [date, setDate] = React.useState("2022/3/15");
+  const [date1, setDate1] = React.useState(null);
 
   return (
     <View style={styles.container}>
@@ -14,8 +14,8 @@ export default function App() {
           date={date}
           onChange={(date: string) => setDate(date)}
           showError={true}
-          minYear={2022}
-          maxYear={2025}
+          minYear={"2022"}
+          maxYear={"2025"}
           darkMode={false}
           isSearchable={false}
         />

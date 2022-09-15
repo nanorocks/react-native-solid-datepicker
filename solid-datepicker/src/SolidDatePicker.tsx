@@ -1,48 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import moment from 'moment';
 
 import Day from './components/Day/Day';
 import Month from './components/Month/Month';
 import Year from './components/Year/Year';
 
+interface ISolidDatePicker {
+  date: string | null,
+  onChange: any,
+  showError: boolean
+  minYear: string,
+  maxYear: string,
+  darkMode: boolean,
+  isSearchable: boolean
+}
+
 function SolidDatePicker({
   date,
   onChange,
   showError = true,
-  minYear = 1999,
-  maxYear = 2030,
+  minYear = "1999",
+  maxYear = "2030",
   darkMode = false,
   isSearchable = true
-}) {
+}: ISolidDatePicker) {
   const [year, setYear] = useState<string | null>(null);
-  const [month, setMonth] = useState<number | null>(null);
-  const [day, setDay] = useState<number | null>(null);
+  const [month, setMonth] = useState<string | null>(null);
+  const [day, setDay] = useState<string | null>(null);
 
   const [inCompleted, setInCompleted] = useState(true);
 
   useEffect(() => {
-    if (date === null) {
-      return;
+    try {
+      const splitDate: string[] = date.split("/");
+
+      setYear(splitDate[0]);
+      setMonth(splitDate[1]);
+      setDay(splitDate[2]);
+    } catch (e) {
+      setYear(null);
+      setMonth(null);
+      setDay(null);
     }
-
-    const tmpDate = moment(date);
-
-    setYear(tmpDate.year().toString());
-    setMonth(tmpDate.month());
-    setDay(tmpDate.date());
   }, []);
 
   useEffect(() => {
-    if (day === null || month === null || year === null) {
+    if (year === null || month === null || day === null) {
       setInCompleted(true);
       onChange(null);
       return;
     }
 
     setInCompleted(false);
-    onChange(new Date(parseInt(year), month, day));
-  }, [day, month, year]);
+    onChange(`${year}/${month}/${day}`);
+  }, [year, month, day]);
 
   return (
     <>

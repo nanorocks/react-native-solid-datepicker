@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import moment from 'moment';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
+import { daysGenerator } from './../../helpers/generators'
 
-function Day({ value, setDay, month, year, darkMode }) {
-  const styles = darkMode ? stylesDark : stylesLight;
+interface IDay {
+  value: string,
+  setDay: any,
+  month: string | null,
+  year: string | null,
+  darkMode: boolean
+}
 
-  const daysGenerator: any = () => {
-    let randomYearAndMonth = '2020-03';
-    // get random days
-    if (month !== null && year !== null) {
-      const tmpMonth =
-        parseInt(month) > 9
-          ? (parseInt(month) + 1).toString()
-          : '0' + (parseInt(month) + 1);
-      randomYearAndMonth = year.toString() + '-' + tmpMonth;
-    }
+function Day({ value, setDay, month, year, darkMode }: IDay) {
 
-    const daysFromYearAndMonth = Array.from(
-      { length: moment(randomYearAndMonth).daysInMonth() },
-      (_, i) => i + 1
-    );
-
-    return daysFromYearAndMonth.map((item) => ({
-      label: item,
-      value: item + 1,
-    }));
-  };
-
-  const [isFocus, setIsFocus] = useState(false);
-  const [data, setData] = useState([]);
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [data, setData] = useState<{label: string, value: string}[] | []>([]);
+  const [styles] = useState(darkMode ? stylesDark : stylesLight)
 
   useEffect(() => {
-    setData(daysGenerator());
+    setData(daysGenerator(month, year));
   }, [month, year]);
 
   return (
