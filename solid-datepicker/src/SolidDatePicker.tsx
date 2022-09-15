@@ -8,11 +8,11 @@ import Year from './components/Year/Year';
 interface ISolidDatePicker {
   date: string | null,
   onChange: any,
-  showError: boolean
-  minYear: string,
-  maxYear: string,
-  darkMode: boolean,
-  isSearchable: boolean
+  showError?: boolean
+  minYear?: string,
+  maxYear?: string,
+  darkMode?: boolean,
+  isSearchable?: boolean
 }
 
 function SolidDatePicker({

@@ -27,8 +27,6 @@ export default function App() {
         <SolidDatePicker
           date={date1}
           onChange={(date: string) => setDate1(date)}
-          showError={false}
-          darkMode={false}
         />
       </View>
     </View>

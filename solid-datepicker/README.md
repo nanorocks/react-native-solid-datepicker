@@ -13,6 +13,7 @@ yarn add react-native-solid-datepicker
 ```
 
 ## Example
+
 ![](https://github.com/nanorocks/react-native-solid-datepicker/blob/main/example_iphone.gif)
 
 ## Usage
@@ -23,8 +24,8 @@ import SolidDatePicker from 'react-native-solid-datepicker';
 import React from 'react';
 
 export default function App() {
-  const [date, setDate] = React.useState(new Date().toString());
-  const [date1, setDate1] = React.useState(new Date().toString());
+  const [date, setDate] = React.useState('2022/3/15');
+  const [date1, setDate1] = React.useState(null);
 
   return (
     <View style={styles.container}>
@@ -33,8 +34,8 @@ export default function App() {
           date={date}
           onChange={(date: string) => setDate(date)}
           showError={true}
-          minYear={2022}
-          maxYear={2025}
+          minYear={'2022'}
+          maxYear={'2025'}
           darkMode={false}
           isSearchable={false}
         />
@@ -46,8 +47,6 @@ export default function App() {
         <SolidDatePicker
           date={date1}
           onChange={(date: string) => setDate1(date)}
-          showError={false}
-          darkMode={false}
         />
       </View>
     </View>
@@ -61,15 +60,15 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Property      | Description                                              |
-| ------------- | -------------------------------------------------------- |
-| date          | (required) State variable                                |
-| onChange      | (required) State varable change value                    |
-| showError     | (optional) Bolean value (true/false)                     |
-| minYear       | (optional) Number value                                  |
-| maxYear       | (optional) Number value                                  |
-| darkMode      | (optional) Bolean value (true/false)                     |
-| isSearchable  | (optional) Bolean value (true/false) for month and year  |
+| Property     | Description                                             |
+| ------------ | ------------------------------------------------------- |
+| date         | (required) State variable                               |
+| onChange     | (required) State varable change value                   |
+| showError    | (optional) Bolean value (true/false)                    |
+| minYear      | (optional) String value                                 |
+| maxYear      | (optional) String value                                 |
+| darkMode     | (optional) Bolean value (true/false)                    |
+| isSearchable | (optional) Bolean value (true/false) for month and year |
 
 ## Contributing
 
