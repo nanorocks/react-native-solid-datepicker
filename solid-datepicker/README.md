@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
 | ------------ | ------------------------------------------------------- |
 | date         | (required) State variable                               |
 | onChange     | (required) State varable change value                   |
-| showError    | (optional) Bolean value (true/false)                    |
+| showError    | (optional) Boolean value (true/false)                    |
 | minYear      | (optional) String value                                 |
 | maxYear      | (optional) String value                                 |
-| darkMode     | (optional) Bolean value (true/false)                    |
-| isSearchable | (optional) Bolean value (true/false) for month and year |
+| darkMode     | (optional) Boolean value (true/false)                    |
+| isSearchable | (optional) Boolean value (true/false) for month and year |
 
 ## Contributing
 
