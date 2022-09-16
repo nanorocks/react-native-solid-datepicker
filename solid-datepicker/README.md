@@ -1,7 +1,7 @@
 # react-native-solid-datepicker
 [![Generic badge](https://img.shields.io/badge/StableVersion-^1.2.7-green.svg)](https://shields.io/)
 [![NPM](https://img.shields.io/npm/dm/react-native-solid-datepicker.svg)](https://www.npmjs.com/package/react-native-solid-datepicker)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![GitHub license](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/nanorocks/react-native-solid-datepicker/blob/main/LICENSE)
 
 An customizable date-picker for react-native with Android and IOS support
 
