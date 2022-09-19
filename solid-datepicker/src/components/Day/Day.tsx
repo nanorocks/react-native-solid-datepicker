@@ -10,9 +10,10 @@ interface IDay {
   month: string | null;
   year: string | null;
   darkMode: boolean;
+  isDisable: boolean;
 }
 
-function Day({ value, setDay, month, year, darkMode }: IDay) {
+function Day({ value, setDay, month, year, darkMode, isDisable }: IDay) {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [data, setData] = useState<{ label: string; value: string }[] | []>([]);
   const [styles] = useState(darkMode ? stylesDark : stylesLight);
@@ -24,7 +25,11 @@ function Day({ value, setDay, month, year, darkMode }: IDay) {
   return (
     <>
       <Dropdown
-        style={[styles.dropdown, isFocus && styles.isFocus]}
+        style={[
+          styles.dropdown,
+          isFocus && styles.isFocus,
+          isDisable && styles.dropdownBg,
+        ]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
@@ -42,6 +47,8 @@ function Day({ value, setDay, month, year, darkMode }: IDay) {
           setDay(item.value);
           setIsFocus(false);
         }}
+        disable={isDisable}
+        iconColor={isDisable && styles.iconColor.color}
       />
     </>
   );

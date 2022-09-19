@@ -9,9 +9,17 @@ interface IMonth {
   setDay: any;
   darkMode: boolean;
   isSearchable: boolean;
+  isDisable: boolean;
 }
 
-function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
+function Month({
+  value,
+  setMonth,
+  setDay,
+  darkMode,
+  isSearchable,
+  isDisable,
+}: IMonth) {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [data, setData] = useState<{ label: string; value: string }[] | []>([]);
   const [styles] = useState(darkMode ? stylesDark : stylesLight);
@@ -23,7 +31,11 @@ function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
   return (
     <>
       <Dropdown
-        style={[styles.dropdown, isFocus && styles.isFocus]}
+        style={[
+          styles.dropdown,
+          isFocus && styles.isFocus,
+          isDisable && styles.dropdownBg,
+        ]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
@@ -42,6 +54,8 @@ function Month({ value, setMonth, setDay, darkMode, isSearchable }: IMonth) {
           setDay(null);
           setIsFocus(false);
         }}
+        disable={isDisable}
+        iconColor={isDisable && styles.iconColor.color}
       />
     </>
   );

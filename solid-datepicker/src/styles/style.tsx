@@ -8,6 +8,12 @@ export const dropdownStyleDark = {
     paddingHorizontal: 18,
     margin: 5,
   },
+  dropdownBg: {
+    backgroundColor: 'grey',
+  },
+  iconColor: {
+    color: 'grey',
+  },
   isFocus: {
     borderColor: '#mmm',
   },
@@ -35,6 +41,12 @@ export const dropdownStyleLight = {
     borderRadius: 8,
     paddingHorizontal: 18,
     margin: 5,
+  },
+  dropdownBg: {
+    backgroundColor: '#ddd',
+  },
+  iconColor: {
+    color: '#ddd',
   },
   isFocus: {
     borderColor: '#mmm',

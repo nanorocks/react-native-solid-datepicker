@@ -24,8 +24,9 @@ export default function App() {
           showError={true}
           minYear={'2022'}
           maxYear={'2025'}
-          darkMode={false}
+          darkMode={true}
           isSearchable={false}
+          isDisable={false}
         />
       </View>
       <View style={styles.text}>
@@ -36,6 +37,7 @@ export default function App() {
           date={emptyDate}
           onChange={(newDate: string) => setEmptyDate(newDate)}
           showError={false}
+          isDisable={true}
         />
       </View>
     </View>
@@ -43,6 +45,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { alignItems: 'center', paddingTop: 90, flex: 1.3 },
+  container: {
+    alignItems: 'center',
+    paddingTop: 90,
+    flex: 1.3,
+    backgroundColor: 'white',
+  },
   text: { alignItems: 'center' },
 });

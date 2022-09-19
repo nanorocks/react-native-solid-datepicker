@@ -1,4 +1,5 @@
 # react-native-solid-datepicker
+
 [![Generic badge](https://img.shields.io/badge/StableVersion-^1.2.7-green.svg)](https://shields.io/)
 [![NPM](https://img.shields.io/npm/dm/react-native-solid-datepicker.svg)](https://www.npmjs.com/package/react-native-solid-datepicker)
 [![GitHub license](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/nanorocks/react-native-solid-datepicker/blob/main/LICENSE)
@@ -47,8 +48,9 @@ export default function App() {
           showError={true}
           minYear={'2022'}
           maxYear={'2025'}
-          darkMode={false}
+          darkMode={true}
           isSearchable={false}
+          isDisable={false}
         />
       </View>
       <View style={styles.text}>
@@ -59,6 +61,7 @@ export default function App() {
           date={emptyDate}
           onChange={(newDate: string) => setEmptyDate(newDate)}
           showError={false}
+          isDisable={true}
         />
       </View>
     </View>
@@ -73,15 +76,16 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Property     | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| date         | (required) State variable                               |
-| onChange     | (required) State varable change value                   |
+| Property     | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| date         | (required) State variable                                |
+| onChange     | (required) State varable change value                    |
 | showError    | (optional) Boolean value (true/false)                    |
-| minYear      | (optional) String value                                 |
-| maxYear      | (optional) String value                                 |
+| minYear      | (optional) String value                                  |
+| maxYear      | (optional) String value                                  |
 | darkMode     | (optional) Boolean value (true/false)                    |
 | isSearchable | (optional) Boolean value (true/false) for month and year |
+| isDisable    | (optional) Boolean value (true/false) disable datepicker |
 
 ## Contributing
 
