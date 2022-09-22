@@ -4,11 +4,14 @@ import { StyleSheet, View, Text } from 'react-native';
 import SolidDatePicker from 'react-native-solid-datepicker';
 
 export default function App() {
-  const [date, setDate] = React.useState(null);
-  const [emptyDate, setEmptyDate] = React.useState(null);
+  const [date, setDate] = React.useState(null); // default must be null
+  const [emptyDate, setEmptyDate] = React.useState(null); // default must be null
 
   React.useEffect(() => {
-    setDate('2022/3/15'); // setting value
+    // setting values
+    setDate('2022/12/15');
+    // setEmptyDate('2022/3/15')
+    // setEmptyDate(null)
   }, []);
 
   React.useEffect(() => {
@@ -24,7 +27,7 @@ export default function App() {
           showError={true}
           minYear={'2022'}
           maxYear={'2025'}
-          darkMode={true}
+          darkMode={false}
           isSearchable={false}
           isDisable={false}
         />

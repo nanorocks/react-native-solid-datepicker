@@ -30,7 +30,9 @@ function SolidDatePicker({
   const [month, setMonth] = useState<string | null>(null);
   const [day, setDay] = useState<string | null>(null);
 
-  const [inCompleted, setInCompleted] = useState(true);
+  const [inCompleted, setInCompleted] = useState<boolean>(true);
+
+  const [stringDate, setStringDate] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -40,7 +42,7 @@ function SolidDatePicker({
       setMonth(splitDate[1]);
       setDay(splitDate[2]);
     } catch (e) {
-      // ... do nothing
+      // do nothing ...
     }
   }, [date]);
 
@@ -52,9 +54,22 @@ function SolidDatePicker({
     }
 
     setInCompleted(false);
-    onChange(`${year}/${month}/${day}`);
+    setStringDate(`${year}/${month}/${day}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, month, day]);
+
+  useEffect(() => {
+    if (stringDate === null) {
+      onChange(null);
+      setYear(null);
+      setMonth(null);
+      setDay(null);
+      return;
+    }
+
+    onChange(stringDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stringDate]);
 
   return (
     <>
