@@ -36,6 +36,14 @@ function SolidDatePicker({
 
   useEffect(() => {
     try {
+      if (date === '') {
+        onChange(null);
+        setYear(null);
+        setMonth(null);
+        setDay(null);
+        return;
+      }
+
       const splitDate: string[] = date.split('/');
 
       setYear(splitDate[0]);
@@ -44,6 +52,7 @@ function SolidDatePicker({
     } catch (e) {
       // do nothing ...
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
   useEffect(() => {
