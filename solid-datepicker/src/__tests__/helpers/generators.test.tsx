@@ -108,3 +108,9 @@ describe('5. day generator', () => {
     expect(daysGenerator('2', '2001').length).toEqual(28);
   });
 });
+
+describe('6. day generator', () => {
+  test('test days with invalid date', () => {
+    expect(daysGenerator('13', '2020').length).toEqual(0);
+  });
+});
