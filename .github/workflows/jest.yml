@@ -10,7 +10,6 @@ jobs:
       - name: Test using Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '16'
-      - run: cd solid-datepicker/     
-      - run: yarn install
-      - run: yarn run test
+          node-version: '16' 
+      - run: cd solid-datepicker && yarn install
+      - run: cd solid-datepicker && yarn test
