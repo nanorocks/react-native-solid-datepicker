@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import moment from 'moment';
 import { dropdownStyleDark, dropdownStyleLight } from './../../styles/style';
 import { yearsGenerator } from './../../helpers/generators';
 
@@ -34,15 +33,8 @@ function Year({
 
   useEffect(() => {
     try {
-      const currentYear: number = moment().year();
-      const maxYearNum: number = parseInt(maxYear, 10);
-      const minYearNum: number = parseInt(minYear, 10);
-
-      const max: number =
-        currentYear <= maxYearNum
-          ? Math.abs(currentYear - maxYearNum)
-          : maxYearNum - currentYear;
-      const min: number = Math.abs(minYearNum - currentYear);
+      const min = parseInt(minYear, 10);
+      const max = parseInt(maxYear, 10);
 
       setData(yearsGenerator(min, max));
     } catch (e) {

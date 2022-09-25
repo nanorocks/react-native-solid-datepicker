@@ -20,8 +20,8 @@ export default function App() {
           date={date}
           onChange={(strDate: string) => setDate(strDate)}
           showError={true}
-          minYear={'2022'}
-          maxYear={'2025'}
+          minYear={'2020'}
+          maxYear={'2022'}
           darkMode={false}
           isSearchable={false}
           isDisable={false}

@@ -82,7 +82,7 @@ function SolidDatePicker({
 
   return (
     <>
-      <View style={styles.container}>
+      <View style={styles.container} data-testid="component">
         <Year
           value={year}
           setYear={setYear}

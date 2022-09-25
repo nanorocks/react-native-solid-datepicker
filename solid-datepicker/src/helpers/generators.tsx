@@ -4,20 +4,16 @@ export const yearsGenerator = (
   min: number,
   max: number
 ): { label: string; value: string }[] => {
-  const years = [];
-  const dateStart = moment().subtract(min, 'y');
-  const dateEnd = moment().add(max, 'y');
+  let years = [];
 
-  while (dateEnd.diff(dateStart, 'years') >= 0) {
+  for (let i = min; i <= max; i++) {
     years.push({
-      label: dateStart.format('YYYY').toString(),
-      value: dateStart.format('YYYY').toString(),
+      label: i.toString(),
+      value: i.toString(),
     });
-
-    dateStart.add(1, 'year');
   }
 
-  return years.reverse();
+  return [...new Set(years)].reverse();
 };
 
 export const monthsGenerator = (): { label: string; value: string }[] => {
