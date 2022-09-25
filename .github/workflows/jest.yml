@@ -12,4 +12,4 @@ jobs:
         with:
           node-version: '16' 
       - run: cd solid-datepicker && yarn install
-      - run: cd solid-datepicker && yarn test
+      - run: cd solid-datepicker && yarn run test:badges
