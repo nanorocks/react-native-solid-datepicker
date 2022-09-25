@@ -4,6 +4,7 @@
 [![NPM](https://img.shields.io/npm/dm/react-native-solid-datepicker.svg)](https://www.npmjs.com/package/react-native-solid-datepicker)
 [![GitHub license](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/nanorocks/react-native-solid-datepicker/blob/main/LICENSE)
 [![Tests CI](https://github.com/nanorocks/react-native-solid-datepicker/actions/workflows/jest.yml/badge.svg)](https://github.com/nanorocks/react-native-solid-datepicker/actions/workflows/jest.yml)
+![](https://raw.githubusercontent.com/nanorocks/react-native-solid-datepicker/main/solid-datepicker/coverage/badge-lines.svg)
 
 An customizable date-picker for react-native with Android and IOS support
 
