@@ -13,7 +13,7 @@ interface ISolidDatePicker {
   maxYear?: string;
   darkMode?: boolean;
   isSearchable?: boolean;
-  isDisable?: boolean;
+  isDisabled?: boolean;
 }
 
 function SolidDatePicker({
@@ -24,7 +24,7 @@ function SolidDatePicker({
   maxYear = '2030',
   darkMode = false,
   isSearchable = true,
-  isDisable = false,
+  isDisabled = false,
 }: ISolidDatePicker) {
   const [year, setYear] = useState<string | null>(null);
   const [month, setMonth] = useState<string | null>(null);
@@ -92,7 +92,7 @@ function SolidDatePicker({
           maxYear={maxYear}
           darkMode={darkMode}
           isSearchable={isSearchable}
-          isDisable={isDisable}
+          isDisabled={isDisabled}
         />
         <Month
           value={month}
@@ -100,7 +100,7 @@ function SolidDatePicker({
           setDay={setDay}
           darkMode={darkMode}
           isSearchable={isSearchable}
-          isDisable={isDisable}
+          isDisabled={isDisabled}
         />
         <Day
           value={day}
@@ -108,7 +108,7 @@ function SolidDatePicker({
           month={month}
           year={year}
           darkMode={darkMode}
-          isDisable={isDisable}
+          isDisabled={isDisabled}
         />
       </View>
       <View style={styles.error}>

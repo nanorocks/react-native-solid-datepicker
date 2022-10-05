@@ -25,45 +25,23 @@ yarn add react-native-solid-datepicker
 ## Usage
 
 ```js
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import SolidDatePicker from 'react-native-solid-datepicker';
 import React from 'react';
 
 export default function App() {
-  const [date, setDate] = React.useState(null); // default state must be null
-  const [emptyDate, setEmptyDate] = React.useState(null); // default state must be null
+  const [date, setDate] = React.useState(null);
 
   React.useEffect(() => {
-    setDate('2022/12/15'); // state will be value or empty string
-    setDate('');
-    setEmptyDate('2022/12/15');
+    setDate('2022/12/15');
   }, []);
 
   return (
     <View style={styles.container}>
-      <View>
         <SolidDatePicker
           date={date}
           onChange={(strDate: string) => setDate(strDate)}
-          showError={true}
-          minYear={'2022'}
-          maxYear={'2025'}
-          darkMode={false}
-          isSearchable={false}
-          isDisable={false}
         />
-      </View>
-      <View style={styles.text}>
-        <Text>Set date: {JSON.stringify(date)}</Text>
-      </View>
-      <View>
-        <SolidDatePicker
-          date={emptyDate}
-          onChange={(newDate: string) => setEmptyDate(newDate)}
-          showError={false}
-          isDisable={true}
-        />
-      </View>
     </View>
   );
 }
@@ -76,16 +54,16 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Property     | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| date         | (required) State variable                                |
-| onChange     | (required) State varable change value                    |
-| showError    | (optional) Boolean value (true/false)                    |
-| minYear      | (optional) String value                                  |
-| maxYear      | (optional) String value                                  |
-| darkMode     | (optional) Boolean value (true/false)                    |
-| isSearchable | (optional) Boolean value (true/false) for month and year |
-| isDisable    | (optional) Boolean value (true/false) disable datepicker |
+| Property     | Description                                              | Default value
+| ------------ | -------------------------------------------------------- | ===============
+| date         | (required) State variable                                | N/A
+| onChange     | (required) State varable change value                    | N/A
+| showError    | (optional) Boolean value (true/false)                    | true
+| minYear      | (optional) String value                                  | 1999
+| maxYear      | (optional) String value                                  | 2030
+| darkMode     | (optional) Boolean value (true/false)                    | false
+| isSearchable | (optional) Boolean value (true/false) for month and year | true
+| isDisabled    | (optional) Boolean value (true/false) disable datepicker | false
 
 ## Contributing
 

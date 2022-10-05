@@ -47,17 +47,9 @@ export const daysGenerator: any = (
       label: item.toString(),
       value: item.toString(),
     }));
-  } catch (e) {
-    const randomYearAndMonth: string = '2020-03';
-
-    const daysFromYearAndMonth = Array.from(
-      { length: moment(randomYearAndMonth, 'YYYY-MM').daysInMonth() },
-      (_, i) => i + 1
-    );
-
-    // console.log("Random:", {daysFromYearAndMonth});
-
-    return daysFromYearAndMonth.map((item) => ({
+  } catch (e: any) {
+    /* istanbul ignore next */
+    return Array.from({ length: 31 }, (_, i) => i + 1).map((item) => ({
       label: item.toString(),
       value: item.toString(),
     }));

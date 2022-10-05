@@ -13,7 +13,7 @@ interface IYear {
   maxYear: string;
   darkMode: boolean;
   isSearchable: boolean;
-  isDisable: boolean;
+  isDisabled: boolean;
 }
 
 function Year({
@@ -25,7 +25,7 @@ function Year({
   maxYear,
   darkMode,
   isSearchable,
-  isDisable,
+  isDisabled,
 }: IYear) {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [data, setData] = useState<{ label: string; value: string }[] | []>([]);
@@ -48,7 +48,7 @@ function Year({
         style={[
           styles.dropdown,
           isFocus && styles.isFocus,
-          isDisable && styles.dropdownBg,
+          isDisabled && styles.dropdownBg,
         ]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
@@ -69,8 +69,8 @@ function Year({
           setDay(null);
           setIsFocus(false);
         }}
-        disable={isDisable}
-        iconColor={isDisable && styles.iconColor.color}
+        disable={isDisabled}
+        iconColor={isDisabled && styles.iconColor.color}
       />
     </>
   );
