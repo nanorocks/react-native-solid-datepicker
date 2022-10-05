@@ -54,16 +54,16 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Property     | Description                                              | Default value
-| ------------ | -------------------------------------------------------- | ===============
-| date         | (required) State variable                                | N/A
-| onChange     | (required) State varable change value                    | N/A
-| showError    | (optional) Boolean value (true/false)                    | true
-| minYear      | (optional) String value                                  | 1999
-| maxYear      | (optional) String value                                  | 2030
-| darkMode     | (optional) Boolean value (true/false)                    | false
-| isSearchable | (optional) Boolean value (true/false) for month and year | true
-| isDisabled    | (optional) Boolean value (true/false) disable datepicker | false
+| Property     | Description                                               | Default value  |
+| ------------ | --------------------------------------------------------- | ---------------|
+| date         | (required) State variable                                 | N/A            |
+| onChange     | (required) State varable change value                     | N/A            |
+| showError    | (optional) Boolean value (true/false)                     | true           |
+| minYear      | (optional) String value                                   | 1999           |
+| maxYear      | (optional) String value                                   | 2030           |
+| darkMode     | (optional) Boolean value (true/false)                     | false          |
+| isSearchable | (optional) Boolean value (true/false) for month and year  | true           |
+| isDisabled    | (optional) Boolean value (true/false) disable datepicker | false          |
 
 ## Contributing
 
